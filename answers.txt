@@ -54,7 +54,7 @@
       thus -x1 - x2 = 0
       therefore   x1 = - x2
 
-      so an eigenvector for λ = 1 is [1, -1]
+      so an eigenvector for λ = 1 is [-1, 1]
 
   λ = 2:
     A =   [ 0 - 2, -1 ]
