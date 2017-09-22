@@ -1,0 +1,78 @@
+1.
+  See scripts.py for details:
+
+  variance of X: 0.080529305884
+  variance of Y: 2.09690259152
+  variance of Z: 0.080501954879
+
+  covariance of X, Y: 0.402026347714
+  covariance of Y, Z: -0.014380262649
+
+  See console for PCA output
+
+2.
+  Given an n-dimensional orthonormal basis, any vector can be computed as the sum of some weight vector
+  C (with values c_i through c_n) multiplied by the basis vector S (with values s_i through s_n).
+
+  v = C * S   where v is a vector in R^n, C is the weight/score vector, and S is the basis matrix
+
+  therefore
+
+  C = v * S^-1
+
+  This formula will produce a vector C of n constant weights on vector v by
+    multiplying the vector with the inverse of S, the matrix holding basis vectors.
+    We know we can find the inverse of S because it contains linearly independent basis vectors.
+
+3.
+  A =   [ 0, -1 ]
+        [ 2,  3 ]
+
+  Find eigenvalues and eigenvectors
+
+  det(A - λI) = 0 gives the characteristic polynomial
+
+    (0-λ)(3-λ) - (-1*2)
+  = -3λ+λ^2 + 2
+  = λ^2 - 3λ + 2 = 0
+
+  solving this equation for λ yields eigenvalues:
+  λ = 1, λ = 2
+
+  to find the corresponding eigenvectors:
+
+  A =   [ 0 - λ, -1 ]
+        [ 2,  3 - λ ]
+
+  λ = 1:
+    A =   [ 0 - 1, -1 ]
+          [ 2,  3 - 1 ]
+
+      =   [ -1, -1 ]
+          [  2,  2 ]
+
+      thus -x1 - x2 = 0
+      therefore   x1 = - x2
+
+      so an eigenvector for λ = 1 is [1, -1]
+
+  λ = 2:
+    A =   [ 0 - 2, -1 ]
+          [ 2,  3 - 2 ]
+
+      =   [ -2, -1 ]
+          [  2,  1 ]
+
+      thus -2x1 - x2 = 0
+      therefore   -2x1 = x2
+
+      so an eigenvector for λ = 2 is [1 , -2]
+
+  From numpy.lingalg.eig(..)
+    we find the same eigenvalues (λ = 1, λ = 2)
+    and equivalent eigenvectors (in the same eigenspaces, with the same ratios)
+    λ = 1: [-0.70710678, 0.70710678]
+    λ = 2: [0.4472136, -0.89442719]
+
+    In both cases, we have found linearly independent eigenvectors which can form a basis of R^2
+    They are not the exact same eigenvectors, but they represent the same eigenspaces.
